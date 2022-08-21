@@ -37,9 +37,9 @@
         <li class="nav-item">
           <a class="nav-link ml-auto" href="{% url 'twilioapp:login' %}">Login</a>
         </li>
-        <li class="nav-item">
+        {% comment %} <li class="nav-item">
           <a class="nav-link" href="{% url 'twilioapp:register' %}">Register</a>
-        </li>
+        </li> {% endcomment %}
         {% endif %}
       </ul>
     </div>
