@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<h1 class="font-weight-bold mt-5 text-center">Order Placed</h1>
+
+{% if messages %}
+{% for message in messages %}
+<div class="flex m-5 alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+    {{ message|safe }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endfor %}
+{% endif %}
+
+<div class="container w-25 mt-5">
+    <form action="{% url 'twilioapp:finish' %}" method='post' enctype="multipart/form-data">
+        {% csrf_token %}
+        <button type="submit" class="form-control btn btn-dark mt-5">It was Fun. Give it Another Try.</button>
+    </form>
+</div>
+
+{%endblock content%}

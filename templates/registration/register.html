@@ -5,16 +5,19 @@
 {% load crispy_forms_tags %} 
 
 <h1 class="text-center mt-5">Create Account</h1>
-<div class="container w-50 mt-5">
+<div class="container w-50 mt-5 text-center">
     <form method="post" action="{% url 'twilioapp:register' %}">
         {% csrf_token %}
         {{form|crispy}}
 
         <div class="container text-center">
-            <button name="submit" class="form-control btn btn-dark mt-3">Register</button>
+            <button name="submit" class="btn btn-dark mt-3">Submit</button>
         </div>
         <input type="hidden" name="next" value="{% url 'twilioapp:login' %}" />
     </form>
+    <br>
+    <a href="{% url 'twilioapp:login' %}">Back To Login</a>
+
 </div>
 
 {% endblock content %}
